@@ -1,0 +1,599 @@
+/* ==UserStyle==
+@name           glitzyteeth
+@namespace      lilyteeth
+@version        2.22.23
+@description    this ones 4 tha FROOTS (forked from alan: https://codeberg.org/alan127/firefox)
+@author         lilyteeth
+@homepageURL    https://github.com/lilyteeth/liliths.styles
+@license        MIT
+@preprocessor   stylus
+@var            select select-theme "Colors preset" ["sillyteeth","killyteeth"]
+@var            select visited-links "Colorful visited links" ["Enabled","Disabled"]
+@var            color visited "Visited link color" #b833e1
+@var            color visited-hover "Hovered visited link color" #952bb9
+@var 			range meow "me yao" [222, -222, 666, 1]
+==/UserStyle== */
+@-moz-document url-prefix("https://wiki.archlinux.org/"),
+url-prefix("https://man.archlinux.org/") {
+
+	:root {
+
+		--alert: #810220;
+		/* red-80 */
+		--info: #5c0019;
+		/* blue-90 */
+		--tip: #200000;
+		/* purple-90 */
+		--arch: #ff00ad;
+		/* arch linux blue */
+		/*old arch: #1793d1; /* arch linux blue */
+		if visited-links=="Enabled" {
+			--visited: visited;
+			/* purple-50 */
+			--visited-hover: visited-hover;
+			/* purple-60 */
+		}
+		if visited-links=="Disabled" {
+			--visited: var(--arch);
+			--visited-hover: var(--font2);
+		}
+
+		if select-theme=="killyteeth" {
+			--deep-dark: #000;
+			/* dark-gray-90 */
+			--lighter-deep-dark: #3c0002aa;
+			/* dark-gray-80 */
+			--font1: #ff00ad;
+			/* light-gray-30 */
+			--font2: #ff93e4;
+			/* light-gray-50 */
+			--text-bg: #ff00ad40;
+			/* dark-gray-60 */
+			--small-borders: #e74982;
+			/* dark-gray-70 */
+		}
+		if select-theme=="sillyteeth" {
+			--deep-dark: #0d0d0d;
+			--lighter-deep-dark: #3c0003;
+			--font1: #ff93e4;
+			--font2: #ff93ad;
+			--text-bg: #550545;
+			--small-borders: #f09;
+		}
+	}
+
+
+	/* ---- main ---- */
+	html,
+	body {
+		background-color: var(--deep-dark);
+		color: var(--font1);
+	}
+	a:link {
+		color: var(--arch);
+	}
+	a:hover,
+	a:focus {
+		color: var(--font2);
+	}
+	a:visited,
+	th a:visited {
+		color: var(--visited);
+	}
+	a:visited:hover {
+		color: var(--visited-hover);
+	}
+	body table,
+	body h1,
+	body h2,
+	body h3,
+	body h4,
+	body h5,
+	body pre,
+	body code,
+	body tt {
+		color: var(--font2);
+	}
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		color: var(--font1);
+	}
+	input,
+	select,
+	textarea {
+		background-color: var(--text-bg);
+		border-color: var(--small-borders);
+		color: var(--font2);
+	}
+
+
+	/* ---- main - navigation bar ---- */
+	#archnavbar {
+		background-color: var(--lighter-deep-dark) !important;
+		border-bottom-color: var(--arch) !important;
+	}
+	#archnavbar input {
+		background-color: var(--lighter-deep-dark);
+	}
+	#archnavbar ul#archnavbarlist li a {
+		color: var(--font2);
+	}
+	#archnavbar ul li a:hover {
+		color: var(--arch) !important;
+	}
+}
+
+@-moz-document url-prefix("https://wiki.archlinux.org/") {
+
+	/* ---- wiki - body ---- */
+	.client-js body,
+	.client-nojs body,
+	body {
+		background-color: var(--deep-dark);
+		color: var(--font1);
+	}
+	body.skin-vector.skin--responsive div.mw-page-container {
+		background-color: transparent;
+		border-left-color: transparent;
+		border-right-color: transparent;
+	}
+
+
+	/* ---- wiki - header ---- */
+	body.skin-vector-2022 .vector-header,
+	body.skin-vector-2022 .vector-header-container,
+	.vector-feature-zebra-design-disabled .vector-header-container,
+	.vector-header-container .mw-header,
+	.vector-header-container .vector-sticky-header,
+	#vector-sticky-header {
+		background-color: var(--deep-dark);
+	}
+	.vector-feature-zebra-design-disabled .vector-sticky-header-container {
+		border-bottom-color: var(--small-borders);
+	}
+	.vector-pinnable-header {
+		border-bottom-color: var(--small-borders);
+	}
+	.vector-pinnable-header-toggle-button {
+		background-color: var(--text-bg);
+		color: var(--font2);
+	}
+	.vector-pinnable-header-toggle-button:hover {
+		background-color: var(--lighter-deep-dark);
+		color: var(--font1);
+	}
+	.vector-pinnable-element .vector-menu-heading {
+		border-bottom-color: var(--small-borders);
+		color: var(--font2);
+	}
+
+
+	/* ---- wiki - links ---- */
+	#content a:not([role="button"]):not(.new),
+	header.mw-header li:not(.new) a:not([role="button"]):not(.new),
+	#mw-panel-toc a:not([role="button"]):not(.new),
+	#mw-navigation li:not(.new) a:not([role="button"]):not(.new),
+	#mw-panel li:not(.new) a:not([role="button"]):not(.new),
+	#column-one li:not(.new) a:not([role="button"]):not(.new),
+	#footer a:not([role="button"]):not(.new) {
+		color: var(--arch) !important;
+	}
+	#content a:not([role="button"]):not(.new):hover,
+	header.mw-header li:not(.new) a:not([role="button"]):not(.new):hover,
+	#mw-panel-toc a:not([role="button"]):not(.new):hover,
+	#mw-navigation li:not(.new) a:not([role="button"]):not(.new):hover,
+	#mw-panel li:not(.new) a:not([role="button"]):not(.new):hover,
+	#column-one li:not(.new) a:not([role="button"]):not(.new):hover,
+	#footer a:not([role="button"]):not(.new):hover {
+		color: var(--font2) !important;
+	}
+	#content a:not(.new):not([role="button"]):visited,
+	#mw-panel li:not(.new) a:not(.new):not([role="button"]):visited,
+	#p-navigation li:not(.new) a:not(.new):not([role="button"]):visited,
+	#p-tb li:not(.new) a:not(.new):not([role="button"]):visited {
+		color: var(--visited) !important;
+	}
+	#content a:not(.new):visited:hover,
+	#mw-panel li:not(.new) a:not(.new):visited:hover,
+	#p-navigation li:not(.new) a:not(.new):visited:hover,
+	#p-tb li:not(.new) a:not(.new):visited:hover {
+		color: var(--visited-hover) !important;
+	}
+	:focus {
+		outline-color: var(--arch);
+	}
+
+
+	/* ---- wiki - icons ---- */
+	/* .vector-dropdown-label, */
+	.vector-icon {
+		filter: invert(50%) !important;
+	}
+
+
+	/* ---- wiki - inputs ---- */
+	#searchform button {
+		background-color: var(--lighter-deep-dark);
+		border-color: var(--small-borders);
+		color: var(--font2);
+	}
+	#searchInput {
+		background-color: var(--text-bg);
+		border-color: var(--small-borders);
+		color: var(--font2);
+	}
+	#searchInput::placeholder {
+		color: var(--font2);
+	}
+	#searchInput:focus,
+	#simpleSearch:hover #searchInput:focus {
+		border-color: var(--arch);
+		box-shadow: inset 0 0 0 1px var(--arch);
+	}
+	.cdx-text-input__input:enabled {
+		background-color: var(--text-bg);
+		border-color: var(--text-bg);
+		color: var(--font1);
+	}
+	.cdx-text-input__input::placeholder {
+		color: var(--font2);
+	}
+	.cdx-search-input--has-end-button {
+		background-color: var(--text-bg);
+		border-color: var(--text-bg);
+	}
+
+
+	/* ---- wiki - buttons ---- */
+	.cdx-button:enabled,
+	.cdx-button.cdx-button--fake-button--enabled {
+		background-color: var(--deep-dark);
+		border-color: var(--small-borders);
+		color: var(--font1);
+	}
+	.cdx-button:enabled:hover,
+	.cdx-button.cdx-button--fake-button--enabled:hover {
+		background-color: var(--lighter-deep-dark);
+	}
+
+
+	/* ---- wiki - dropdown ---- */
+	.vector-dropdown .vector-dropdown-content,
+	.vector-feature-zebra-design-disabled .vector-dropdown .vector-dropdown-content {
+		background-color: var(--deep-dark);
+		border-color: var(--small-borders);
+	}
+
+
+	/* ---- wiki - popup after moving dropdown ---- */
+	.oo-ui-popupWidget-popup {
+		background-color: var(--deep-dark);
+		border-color: var(--arch);
+	}
+	.oo-ui-popupWidget-anchored-top .oo-ui-popupWidget-anchor::after {
+		border-bottom-color: var(--arch);
+	}
+
+
+	/* ---- wiki - left and right panels ---- */
+	body.skin-vector #vector-main-menu.vector-main-menu {
+		background-color: var(--deep-dark);
+		border-color: var(--small-borders);
+	}
+	.vector-feature-zebra-design-disabled .vector-toc,
+	.vector-feature-zebra-design-disabled #vector-toc-pinned-container .vector-toc::after {
+		background: var(--deep-dark);
+	}
+	.vector-feature-zebra-design-disabled .vector-pinnable-element > :not(:last-child),
+	.vector-feature-zebra-design-disabled .vector-dropdown-content > :not(:last-child) {
+		border-bottom-color: var(--small-borders);
+	}
+	.vector-feature-zebra-design-disabled .vector-pinnable-header-label,
+	.vector-feature-zebra-design-disabled .vector-pinnable-element .vector-menu-heading,
+	.vector-feature-zebra-design-disabled .vector-dropdown-content .vector-menu-heading {
+		color: var(--font2);
+	}
+
+
+	/* ---- wiki - tabs ---- */
+	.mw-article-toolbar-container {
+		border-bottom-color: var(--small-borders);
+	}
+	.vector-page-titlebar,
+	.vector-page-toolbar-container {
+		box-shadow: 0 1px var(--small-borders);
+	}
+
+
+	/* ---- wiki - search input suggestions ---- */
+	.cdx-menu {
+		background-color: var(--deep-dark);
+		border-color: var(--small-borders);
+	}
+	.cdx-menu-item--enabled:hover,
+	.cdx-menu-item--enabled.cdx-menu-item--highlighted {
+		background-color: var(--text-bg);
+	}
+	.cdx-typeahead-search__search-footer {
+		background-color: var(--deep-dark);
+		border-top-color: var(--small-borders);
+	}
+
+	/* ---- wiki (vector legacy) - search input suggestions ---- */
+	.suggestions-result {
+		color: var(--font1);
+	}
+	.suggestions-results {
+		background-color: var(--deep-dark);
+		border-color: var(--small-borders);
+	}
+	.suggestions-result-current {
+		background-color: var(--info);
+	}
+	.suggestions-special {
+		background-color: var(--info);
+		border-color: var(--small-borders);
+	}
+	.suggestions-special .special-label {
+		color: var(--font2);
+	}
+	.suggestions-special .special-query,
+	.suggestions-result-current .special-label,
+	.suggestions-result-current .special-query {
+		color: var(--font1);
+	}
+
+
+	/* ---- wiki - results page ---- */
+	#searchText > input {
+		background-color: var(--text-bg);
+		border-color: var(--small-borders);
+		color: var(--font1);
+	}
+	#searchText > input::placeholder {
+		color: var(--font2);
+	}
+	#searchText:hover > input,
+	#searchText:hover > input:focus {
+		border-color: var(--arch);
+	}
+	.mw-search-profile-tabs {
+		background-color: var(--deep-dark);
+		border-color: var(--small-borders);
+	}
+	.mw-search-result-data {
+		color: var(--font2);
+	}
+
+
+	/* ---- wiki - results page - search suggestions ---- */
+	.oo-ui-menuSelectWidget {
+		background-color: var(--deep-dark);
+		border-color: var(--small-borders);
+	}
+	.oo-ui-menuSelectWidget * {
+		color: var(--font1);
+	}
+	.oo-ui-menuSelectWidget *:hover {
+		background-color: var(--text-bg);
+	}
+	.oo-ui-menuOptionWidget.oo-ui-optionWidget-highlighted {
+		background-color: var(--text-bg);
+		color: var(--font1);
+	}
+
+
+	/* ---- wiki - content ---- */
+	#content {
+		background-color: var(--lighter-deep-dark);
+		border-color: var(--small-borders);
+	}
+	.mw-body,
+	.parsoid-body {
+		color: var(--font2);
+	}
+	#content table,
+	#content h1,
+	#content h2,
+	#content h3,
+	#content h4,
+	#content h5,
+	#content h6,
+	#content pre,
+	#content code,
+	#content tt {
+		color: var(--font1);
+	}
+	h1,
+	h2 {
+		border-bottom-color: var(--arch);
+	}
+	#contentSub,
+	#contentSub2 {
+		color: var(--font1);
+	}
+	#content pre:not([class*="CodeMirror"]),
+	#content code,
+	#content tt {
+		background-color: var(--text-bg);
+	}
+	#content pre:not([class*="CodeMirror"]) {
+		border-color: var(--font2);
+	}
+	.catlinks {
+		background-color: var(--deep-dark);
+		border-color: var(--small-borders);
+	}
+	.catlinks li {
+		border-left-color: var(--font1);
+	}
+
+
+	/* ---- wiki (vector legacy) - content navigation ---- */
+	#toc,
+	.toc,
+	.mw-warning,
+	.toccolours {
+		background-color: var(--deep-dark);
+		border-color: var(--small-borders);
+	}
+	.tocnumber {
+		color: var(--font2);
+	}
+
+
+	/* ---- wiki - content navigation ---- */
+	.vector-feature-page-tools-disabled .vector-main-menu,
+	.vector-pinned-container,
+	.vector-toc,
+	#vector-toc-pinned-container .vector-toc::after {
+		background: var(--deep-dark);
+	}
+	.vector-sticky-pinned-container::after {
+		background: linear-gradient(rgba(255, 255, 255, 0), var(--deep-dark));
+	}
+	.toctogglelabel,
+	.vector-toc .vector-toc-link {
+		color: var(--arch);
+	}
+	.vector-menu-tabs .selected {
+		background-color: var(--lighter-deep-dark);
+	}
+	nav.vector-menu-tabs li.selected {
+		background-color: var(--lighter-deep-dark);
+		border-color: var(--small-borders);
+		border-bottom-color: var(--lighter-deep-dark);
+	}
+	body.skin-vector-2022 #mw-panel-toc.mw-table-of-contents-container #vector-toc-pinned-container {
+		border-color: var(--small-borders);
+	}
+
+
+	/* ---- wiki - message box ---- */
+	.mw-message-box {
+		background-color: var(--info);
+		border-color: var(--small-borders);
+		color: var(--font1);
+	}
+
+
+	/* ---- wiki - content related articles ---- */
+	div.archwiki-template-meta-related-articles > p,
+	div.archwiki-template-meta-related-articles-start > p, div.archwiki-template-meta-related-articles {
+		background-color: var(--deep-dark) !important;
+		border-bottom-color: var(--arch) !important;
+		color: var(--font2) !important;
+	}
+
+
+	/* ---- wiki - content template box ---- */
+	div.archwiki-template-message {
+		background-color: var(--info);
+		border-color: var(--small-borders);
+	}
+	div.archwiki-template-box.archwiki-template-box-warning {
+		background-color: var(--alert);
+		border-color: var(--small-borders);
+	}
+	div.archwiki-template-box.archwiki-template-box-note {
+		background-color: var(--info);
+		border-color: var(--small-borders);
+	}
+	div.archwiki-template-box.archwiki-template-box-tip {
+		background-color: var(--tip);
+		border-color: var(--small-borders);
+	}
+
+
+	/* ---- wiki - content wiki tables ---- */
+	.wikitable {
+		background-color: var(--text-bg);
+		border-color: var(--small-borders);
+	}
+	.wikitable > tr > th,
+	.wikitable > * > tr > th {
+		background-color: var(--deep-dark);
+	}
+	.wikitable > tr > th,
+	.wikitable > tr > td,
+	.wikitable > * > tr > th,
+	.wikitable > * > tr > td {
+		border-color: var(--small-borders);
+		color: var(--font2);
+	}
+	.wikitable td[data-sort-value] {
+		/* workaround against inline styling */
+		color: black !important;
+	}
+	.wikitable td[style]:not([data-sort-value]) {
+		background-color: var(--lighter-deep-dark) !important;
+	}
+
+
+	/* ---- wiki - footer ---- */
+	#footer {
+		color: var(--font2);
+	}
+	.mw-footer {
+		border-top-color: var(--small-borders);
+	}
+	.mw-footer li {
+		color: var(--font2);
+	}
+}
+
+@-moz-document url-prefix("https://man.archlinux.org/") {
+
+	/* ---- man pages ---- */
+	table.head {
+		border-bottom-color: var(--small-borders);
+	}
+	table.styled-table {
+		background-color: var(--lighter-deep-dark);
+		border-color: var(--small-borders);
+	}
+	table.styled-table th {
+		background-color: var(--info);
+		border-color: var(--small-borders);
+	}
+	table.styled-table tr td {
+		border-top-color: var(--small-borders);
+	}
+	table.styled-table tr:hover {
+		background-color: var(--text-bg);
+	}
+	table.foot {
+		border-top-color: var(--small-borders);
+	}
+	code {
+		background-color: var(--text-bg);
+	}
+	pre {
+		background-color: var(--text-bg);
+		border-color: var(--font2);
+	}
+	.box {
+		background-color: var(--lighter-deep-dark);
+		border-color: var(--arch);
+	}
+	.man-page-content table.tbl {
+		background-color: var(--lighter-deep-dark);
+		border-color: var(--small-borders);
+	}
+	.man-page-content table.tbl th,
+	.man-page-content table.tbl tr:first-child td:not(:only-child) {
+		background-color: var(--info);
+		border-bottom-color: var(--small-borders);
+	}
+	.man-page-content table.tbl tr:hover {
+		background-color: var(--text-bg);
+	}
+	.man-page-content table.tbl tr td {
+		border-bottom-color: var(--small-borders);
+		border-top-color: var(--small-borders);
+	}
+}
