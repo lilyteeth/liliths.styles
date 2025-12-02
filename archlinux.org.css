@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           glitzyteeth
 @namespace      lilyteeth
-@version        2.22.23.10.40.100
+@version        2.23
 @description    this ones 4 tha FROOTS (forked from alan: https://codeberg.org/alan127/firefox)
 @author         lilyteeth
 @homepageURL    https://github.com/lilyteeth/liliths.styles
@@ -91,7 +91,7 @@ url-prefix("https://man.archlinux.org/"), url-prefix("https://aur.archlinux.org"
 	}
 	code {
 		background: var(--text-bg) !important;
-		text-shadow: 2px 2px 1px var(--small-borders) !important;
+		/*text-shadow: 2px 2px 1px var(--small-borders) !important;*/
 	}
 	body table,
 	body h1,
