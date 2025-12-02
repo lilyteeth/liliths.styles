@@ -1,11 +1,11 @@
 /* ==UserStyle==
 @name           glitzyteeth
 @namespace      lilyteeth
-@version        2.23
-@description    this ones 4 tha FROOTS (forked from alan: https://codeberg.org/alan127/firefox)
+@version        2.23.1
+@description    this ones 4 tha FROOTS
 @author         lilyteeth
-@homepageURL    https://github.com/lilyteeth/liliths.styles
-@license        MIT
+@homepageURL    https://raw.githubusercontent.com/lilyteeth/liliths.styles/refs/heads/main/archlinux.org.css
+@license        copyleft
 @preprocessor   stylus
 @var            select select-theme "Colors preset" ["sillyteeth","killyteeth"]
 @comment 		var 			checkbox  test "test" 1
