@@ -1,18 +1,21 @@
 /* ==UserStyle==
 @name           glitzyteeth
 @namespace      lilyteeth
+<<<<<<< HEAD:archlinux.org.user.css
 @version        2.23.1
 @description    this ones 4 tha FROOTS
+=======
+@version        2.69.420
+@description    for those who own $50 socks
+>>>>>>> 555cd18 (fixed aur codeblock contrast, changed colorful links from dropdown to toggle):archlinux.org.css
 @author         lilyteeth
 @homepageURL    https://raw.githubusercontent.com/lilyteeth/liliths.styles/refs/heads/main/archlinux.org.user.css
 @license        copyleft
 @preprocessor   stylus
 @var            select select-theme "Colors preset" ["sillyteeth","killyteeth"]
-@comment 		var 			checkbox  test "test" 1
-@var            select visited-links "Colorful visited links" ["Enabled","Disabled"]
+@var 			checkbox  linkToggle "Colorful visited links" 1
 @var            color visited "Visited link color" #b833e1
 @var            color visited-hover "Hovered visited link color" #952bb9
-@var 			range meow "me yao" [222, -222, 666, 1]
 ==/UserStyle== */
 @-moz-document url-prefix("https://wiki.archlinux.org/"),
 url-prefix("https://man.archlinux.org/"), url-prefix("https://aur.archlinux.org") {
@@ -28,13 +31,13 @@ url-prefix("https://man.archlinux.org/"), url-prefix("https://aur.archlinux.org"
 		--arch: #ff00ad;
 		/* arch linux blue */
 		/*old arch: #1793d1; /* arch linux blue */
-		if visited-links=="Enabled" {
+		if linkToggle {
 			--visited: visited;
 			/* purple-50 */
 			--visited-hover: visited-hover;
 			/* purple-60 */
 		}
-		if visited-links=="Disabled" {
+		if !linkToggle {
 			--visited: var(--arch);
 			--visited-hover: var(--font2);
 		}
@@ -46,6 +49,8 @@ url-prefix("https://man.archlinux.org/"), url-prefix("https://aur.archlinux.org"
 			--font2: #ff93e4;
 			--text-bg: #ff00ad40;
 			--small-borders: #e74982;
+			--bg-code: #420022 !important;
+			--bg-pre: #f6f2 !important;
 		}
 		if select-theme=="sillyteeth" {
 			--deep-dark: #0d0d0d;
@@ -54,6 +59,8 @@ url-prefix("https://man.archlinux.org/"), url-prefix("https://aur.archlinux.org"
 			--font2: #ff93ad;
 			--text-bg: #550545;
 			--small-borders: #f09;
+			--bg-code: #420022;
+			--bg-pre: #55054580;
 		}
 	}
 
@@ -90,8 +97,20 @@ url-prefix("https://man.archlinux.org/"), url-prefix("https://aur.archlinux.org"
 		color: var(--visited-hover);
 	}
 	code {
+<<<<<<< HEAD:archlinux.org.user.css
 		background: var(--text-bg) !important;
 		/*text-shadow: 2px 2px 1px var(--small-borders) !important;*/
+=======
+		color: var(--font2) !important;
+		background: var(--bg-code) !important;
+		text-shadow: 2px 2px 1px var(--deep-dark) !important;
+	}
+	pre {
+		color: var(--font2) !important;
+		background: var(--bg-pre) !important;
+		border: 1px solid var(--small-borders) !important;
+		text-shadow: 1px 1px 1px var(--arch) !important;
+>>>>>>> 555cd18 (fixed aur codeblock contrast, changed colorful links from dropdown to toggle):archlinux.org.css
 	}
 	body table,
 	body h1,
@@ -99,8 +118,6 @@ url-prefix("https://man.archlinux.org/"), url-prefix("https://aur.archlinux.org"
 	body h3,
 	body h4,
 	body h5,
-	body pre,
-	body code,
 	body tt {
 		color: var(--font2) !important;
 	}
@@ -614,16 +631,6 @@ url-prefix("https://man.archlinux.org/"), url-prefix("https://aur.archlinux.org"
 		--tip: #200000; 	/* purple-90 */
 		--arch: #ff00ad;	/* arch linux blue */
 		/*old arch: #1793d1;*//* arch linux blue */
-		if visited-links=="Enabled" {
-			--visited: visited;
-			/* purple-50 */
-			--visited-hover: visited-hover;
-			/* purple-60 */
-		}
-		if visited-links=="Disabled" {
-			--visited: var(--arch);
-			--visited-hover: var(--font2);
-		}
 
 		if select-theme=="killyteeth" {
 			--deep-dark: #000;
@@ -674,3 +681,4 @@ url-prefix("https://man.archlinux.org/"), url-prefix("https://aur.archlinux.org"
 	}
 }
  
+
