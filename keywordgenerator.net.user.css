@@ -1,0 +1,19 @@
+/* ==UserStyle==
+@name           Remove Paywall
+@namespace      github.com/openstyles/stylus
+@version        2026.05.31
+@description    This is praxis
+@author         lilyteeth
+==/UserStyle== */
+
+@-moz-document domain("keywordgenerator.net") {
+	/* remove paywall popup */
+	.banner-cta {
+		display: none !important;
+	}
+	/* remove blur */
+	tbody.tge tr td:not(:first-child) + td,
+	tbody.tge tr td:not(:first-child) + td {
+		filter: none !important;
+	}
+}
